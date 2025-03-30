@@ -4,6 +4,7 @@ import os
 import google.generativeai as genai
 from PIL import Image
 import datetime
+import requests
 from googleapiclient.discovery import build
 from google.oauth2 import service_account
 
@@ -13,6 +14,7 @@ st.set_page_config(page_title="Planner App", page_icon="🌍", layout="wide")
 # Load the API Key
 load_dotenv()
 genai.configure(api_key=os.getenv("key"))
+OPENWEATHER_API_KEY = os.getenv("OPENWEATHER_API_KEY")
 
 # Google Calendar API Setup
 SERVICE_ACCOUNT_FILE = 'gen-lang-client-0445774123-4a187b86b57d.json'  # Replace with your actual file
@@ -77,6 +79,66 @@ def add_event_to_calendar(summary, description, start_time, end_time):
             st.error(f"Full Exception: {e}")  # More detailed error
     else:
         st.error("Google Calendar credentials not set up.")
+
+# Function to get weather forecast using OpenWeather API
+def get_weather_forecast(city):
+    url = f"http://api.openweathermap.org/data/2.5/forecast?q={city}&appid={OPENWEATHER_API_KEY}&units=metric"
+    
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+
+        # Extract weather data for 12 PM UTC
+        today_data = next(
+            (item for item in data['list'] if datetime.datetime.utcfromtimestamp(item['dt']).hour == 12),
+            None
+        )
+
+        if today_data:
+            today_temp = today_data['main']['temp']
+            today_description = today_data['weather'][0]['description'].capitalize()  # Capitalize description
+            today_humidity = today_data['main']['humidity']
+            today_wind_speed = today_data['wind']['speed']
+            today_precipitation = today_data.get('rain', {}).get('3h', 0)
+
+            st.markdown(f"""
+                <div style='background-color: #222; color: white; padding: 20px; border-radius: 10px;'>
+                    <div style='display: flex; justify-content: space-between; align-items: center;'>
+                        <div style='font-size: 3em;'>☀️ {today_temp}°C</div>
+                        <div>
+                            <p>Precipitation: {today_precipitation} mm</p>
+                            <p>Humidity: {today_humidity}%</p>
+                            <p>Wind: {today_wind_speed} km/h</p>
+                        </div>
+                        <div>
+                            <h2>Weather</h2>
+                            <p>{datetime.datetime.now().strftime("%A, %I:%M %p")}</p>
+                            <p>{today_description}</p>
+                        </div>
+                    </div>
+                    <div style='margin-top: 20px; border-top: 1px solid #444; padding-top: 10px;'>
+                        <h3 style='margin-bottom: 10px;'>Hourly Temperature</h3>
+                        <div style='display: flex; justify-content: space-between;'>
+                            {' '.join([f'<span style="margin-right: 10px;">{item["main"]["temp"]}°C</span>' for item in data['list'][:8]])}
+                        </div>
+                        <div style='display: flex; justify-content: space-between;'>
+                            {' '.join([f'<span>{datetime.datetime.utcfromtimestamp(item["dt"]).strftime("%I %p")}</span>' for item in data['list'][:8]])}
+                        </div>
+                    </div>
+                    <div style='margin-top: 20px; border-top: 1px solid #444; padding-top: 10px;'>
+                        <h3 style='margin-bottom: 10px;'>Next Few Days</h3>
+                        <div style='display: flex; justify-content: space-between;'>
+                            {' '.join([f'<div style="text-align: center;"><p>{datetime.datetime.utcfromtimestamp(item["dt"]).strftime("%a")}</p><p>{item["main"]["temp"]}°C</p></div>' for item in data['list'][8::8]])}
+                        </div>
+                    </div>
+                </div>
+            """, unsafe_allow_html=True)
+        else:
+            st.write("Weather data for 12 PM UTC not available.")
+    else:
+        st.write(f"Response Status Code: {response.status_code}")
+        st.write(f"Response Text: {response.text}")  # Print full error message
+        st.write("Failed to retrieve weather data.")
 
 # Add Background Image
 page_bg_img = '''
@@ -147,19 +209,9 @@ elif section_choice == "Trip Planner":
 
 elif section_choice == "Weather Forecasting":
     st.subheader("🌤 Weather Forecasting")
-    input_prompt_weather = """
-    You are an expert weather forecaster. Provide a 7-day forecast for the given location, including:
-    - Precipitation
-    - Humidity
-    - Wind conditions
-    - Air Quality
-    - Cloud Cover
-    """
-    input_plan = st.text_area("Enter location for weather forecast:")
+    city = st.text_area("Enter location for weather forecast:")
     if st.button("🌦 Get Forecast"):
-        response = get_response(input_prompt_weather, input_plan)
-        st.subheader("🌍 Weather Bot:")
-        st.write(response)
+        get_weather_forecast(city)
 
 elif section_choice == "Restaurant & Hotel Planner":
     st.subheader("🍽 Restaurant & Hotel Planner")
