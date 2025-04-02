@@ -142,6 +142,7 @@ def get_weather_forecast(city):
 
 # Add Background Image
 page_bg_img = '''
+<style>
 .stApp {
     background-image: url("https://4kwallpapers.com/images/walls/thumbs_3t/287.jpg");
     background-size: cover;
