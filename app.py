@@ -144,8 +144,7 @@ def get_weather_forecast(city):
 page_bg_img = '''
 <style>
 .stApp {
-    background-image: "logo.png";
-    # url("https://i.pinimg.com/736x/49/47/f7/4947f729251cdf34266cc0523ea379df.jpg");
+    background-image: url("https://4kwallpapers.com/images/walls/thumbs_3t/287.jpg");
     background-size: cover;
 }
 </style>
