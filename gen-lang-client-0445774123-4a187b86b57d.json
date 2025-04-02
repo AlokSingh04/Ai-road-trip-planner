@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "gen-lang-client-0445774123",
+  "private_key_id": "4a187b86b57d290b5c7eb901408d4ebdf578fd4f",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDjZ/25C/m2E/zK\nuOC7kdYsgaC/Kacy2hFXbapu7BjUIbUmJqFIm/AWykjVKEkdzIk3CGAB+2jnZvO3\n19fhpdVgKigtA4fJUxLmlvbgjo8+L4BS1xF1utDSePEvks/NOmzV5DGrRMmAPjJF\nHup6N2PAQpj+Pk51EaCKWOL2spW1s4HOfCUvUc14ESLdKa/+zXBQ70r6VnkgqTrm\nY9qzx6S7nCdWC3S0n866XbL50btdTteq/niDoKbYJODLPBcpzwk2+TER3FkQ9O36\nkvOtWSWhytuJqW3nAm9DZW4P4EJbqi6Md9ur4TQtivO/OrX79Pp+5s8axP+HZisC\nby254SyJAgMBAAECggEAINqSCzU59S6Dj9UwcKDj8KekreGKbJwZM8id/isBdkpN\nZc7gb8FJqT090v/gOlwlucvttPOZxw62aMnYAFtpTZyhk8lGCZXFLgfC8JPgCYOq\n1i0IsnnUOAgtjio3d+a4ORmf/GayduLld9t81D3i3TCx8k9Vne+3Qi2P0sTfwLGB\n9MovEw0yBIo1wNTAVFyjvihH+ftqAno2RN2qTpW0Sc+m4h/BCJKu/PiXqAbxqheT\nLd3BoastIwHdfyCKPPczJE00Vmf1GI9xXGArYu4BbKgpkyh8efA94vZ+Hy0cJ7ev\nToybOui/kfi6CNr0Y0d5Dwu8nX8c/4Qqdh+WklpV9QKBgQD2RwHKC8EPDKKl0FGM\ndsGiRZFhSO6rbkPk+0oVCSEbfMToIUKmNedNX8L1ZU0DAF6lcTOrUJGUNWXmTlsz\nKAFe25kvVXug6sPIRF0I5p/Vgw8u5wCF1qXj4ebyteG5qEfnnw6E+VJtESZrTVnm\n1hWPHHptqIWPy8TK9uqTHbQr5QKBgQDsYkNz613wJHcEiP6i3NEmgrXza2F2n/F/\n0yItGzAicpX8b5FGDAjJETxCsL/32nmIpY2FRjvb+xJLjcvdnoXDMOjf8UTnem8J\n73ZSFbJ/JBrAxs69/sf04h9hj0r7IQosiECNK9zzgDwqXWW6Eo0gtKvAs15mzNsR\nSi7vtoGb1QKBgQC+3EzQrsdRyHMMmiN4/lgWUF/Yy1LcXLoVbYH+R3L3AH0BgTVL\n5p55YmuPDpDecJzpDpAChpAsEi4EjFk1jh1xzDItcsw663YLcJ/BVCouqEFOEgxf\nrPgnYV1AYCCtZ3NCWAxClY6BpDboFaxEr0lJ/cIL1fycckjzGuS0WuLU2QKBgQCk\n3AdlMjLqx9PF8vF8jnrD3AegBDUOMZCRcKP2R27zp2zZiMoNy1jZOk8HyBOqfdGj\nLqsb1xbqXhmtXfBf2S47KsJPZQqEUkxc5ohjyUQbDggmiMEpmybDsGzocrJ9oNZi\npog2rO/FV5sehNLsygFpXPgoRjDBi4ABd/ZyMpwEHQKBgHePJyOBcLb5fca5MdX5\nN2/PY4owTepsQwHQTWli0l6wZUXd2qZCSx7iO7KbvGKEtB40FNl178buNFXQPwgT\nNVlB7z7RvIsOb/Nj+7/80dlVRI8pBiH2DALnTtqiNrO7FQkJ9seRTwbIno9s4VyZ\n3dvpTfuwHjm8yNSNZEMflLKd\n-----END PRIVATE KEY-----\n",
+  "client_email": "streamlit-calendar-app@gen-lang-client-0445774123.iam.gserviceaccount.com",
+  "client_id": "106767304576122147166",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/streamlit-calendar-app%40gen-lang-client-0445774123.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
