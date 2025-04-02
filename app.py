@@ -144,12 +144,14 @@ def get_weather_forecast(city):
 page_bg_img = '''
 <style>
 .stApp {
-    background-image: url("https://4kwallpapers.com/images/walls/thumbs_3t/287.jpg");
+    background-image: url("https://64.media.tumblr.com/f6d849f74aa1c67193d8d0a08f0b89e6/tumblr_pt41e8eELy1uvsi7jo1_1280.gifv");
     background-size: cover;
     color: white;
 }
 </style>
 '''
+# https://4kwallpapers.com/images/walls/thumbs_3t/287.jpg
+
 st.markdown(page_bg_img, unsafe_allow_html=True)
 
 st.image('logo.png', width=400)
