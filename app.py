@@ -146,6 +146,7 @@ page_bg_img = '''
 .stApp {
     background-image: url("");
     background-size: cover;
+    color: white;
 }
 </style>
 '''
