@@ -142,18 +142,10 @@ def get_weather_forecast(city):
 
 # Add Background Image
 page_bg_img = '''
-<style>
-:root {
-    --text-color: black;
-}
-
-[data-theme="dark"] {
-    --text-color: white;
-}
 .stApp {
-    background-image: url("");
+    background-image: url("https://4kwallpapers.com/images/walls/thumbs_3t/287.jpg");
     background-size: cover;
-    color: var(--text-color);
+    color: white;
 }
 </style>
 '''
