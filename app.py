@@ -165,7 +165,7 @@ if section_choice == "Location Finder":
     upload_file = st.file_uploader("Upload an image of a location", type=["jpg", "jpeg", "png"])
     if upload_file is not None:
         image = Image.open(upload_file)
-        st.image(image, caption="Uploaded Image", use_column_width=True)
+        st.image(image, caption="Uploaded Image", use_container_width=True)
 
     input_prompt_loc = """
     You are an expert Tourist Guide. Provide:
